@@ -57,3 +57,16 @@ for i in data:
 
 If you wish to add different records, modify the `data` variable accordingly.
 
+6. Save the changes and run the script.
+
+The script will then connect to your database, select all records from the `make` table, insert the new records, and print all the records from the updated `make` table.
+
+## Note
+The script includes a commented out section that creates a new table called `lake`. If you need to create this table, uncomment these lines:
+
+```python
+# cursor.execute("CREATE TABLE lake ( id int identity(1,1), name VARCHAR(128) UNIQUE,PRIMARY KEY(id))")
+# cnxn.commit()
+```
+
+Then, modify the table name, column names, and column types to suit your needs.
