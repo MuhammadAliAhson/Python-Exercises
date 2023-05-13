@@ -19,3 +19,41 @@ The script uses `pyodbc`, a Python library that facilitates connections to ODBC 
 ```bash
 pip install pyodbc
 ```
+
+## Steps
+
+1. Clone the repository to your local machine or download the python script.
+
+2. Open the Python file in your preferred code editor.
+
+3. Update the SQL Server connection string with your server details:
+
+```python
+cnxn = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
+                      "Server=Enter Your Server Name;"
+                      "Database=ali;"
+                      "Trusted_Connection=yes;")
+```
+
+Replace `Enter Your Server Name` with the name of your SQL Server. Make sure that the `Database` value matches the name of your database.
+
+4. The script is set to select all records from the table named `make`:
+
+```python
+cursor.execute("Select * from make")
+```
+
+If your table has a different name, replace `make` with your table's name.
+
+5. The script inserts three new records into the `make` table:
+
+```python
+sopi= "insert into make (name) values (?)"
+data= [('Uop'),('pou'),('fff')]
+
+for i in data:
+    cursor.execute(sopi,i)
+```
+
+If you wish to add different records, modify the `data` variable accordingly.
+
